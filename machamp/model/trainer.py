@@ -200,7 +200,6 @@ def train(
             optimizer.zero_grad()
             # we create the batches again every epoch to save 
             # gpu ram, it is quite fast anyways
-            set_trace()
             batch = myutils.prep_batch(batch, device, train_dataset)
 
             loss, _, _, _, _, loss_dict = model.forward(batch['token_ids'], batch['golds'], batch['seg_ids'],
