@@ -1,3 +1,4 @@
+from pudb import set_trace
 import copy
 import json
 import logging
@@ -152,8 +153,11 @@ def prep_batch(
             golds[task] = torch.zeros(batch_size, dtype=torch.long, device=device)
 
     for instanceIdx, instance in enumerate(batch):
-        batch_tokens[instanceIdx][0:len(instance.token_ids)] = instance.token_ids
-        batch_seg_ids[instanceIdx][0:len(instance.seg_ids)] = instance.seg_ids
+        try:
+            batch_tokens[instanceIdx][0:len(instance.token_ids)] = instance.token_ids
+            batch_seg_ids[instanceIdx][0:len(instance.seg_ids)] = instance.seg_ids
+        except:
+            set_trace()
         for task in instance.golds:
             task_type = dataset.task_to_tasktype(task)
             is_word_level = task_type in ['seq', 'multiseq', 'seq_bio', 'tok', 'dependency', 'string2string', 'mlm']
