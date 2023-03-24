@@ -131,7 +131,7 @@ def read_classification(
         unk_counter += full_input.count(tokenizer.unk_token_id)
         if has_end_token:
             full_input = full_input[:-1]
-        full_input = tokenizer.prepare_for_model(full_input)['input_ids']
+        full_input = tokenizer.prepare_for_model([1] + full_input)['input_ids']
         full_input = torch.tensor(full_input, dtype=torch.long)
         seg_ids = torch.tensor(seg_ids, dtype=torch.long)
 
