@@ -69,7 +69,6 @@ def merge_configs(dataset_configs: List[str], parameters_config: Dict):
                 data_params[dataset]['tasks'][task] = full_task_config
     return data_params
 
-set_trace()
 def prep_batch(
         batch: List[MachampInstance],
         device: str,
@@ -111,6 +110,7 @@ def prep_batch(
         'eval_mask': The masking for the evaluation. Is the length of the annotation.
     """
     batch_size = len(batch)
+    set_trace()
     max_subword_len = max([len(instance) for instance in batch])
     batch_tokens = torch.full((batch_size, max_subword_len), 0, dtype=torch.long, device=device)
     batch_seg_ids = torch.zeros((batch_size, max_subword_len), dtype=torch.long, device=device)
