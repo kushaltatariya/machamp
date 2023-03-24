@@ -110,7 +110,6 @@ def prep_batch(
         'eval_mask': The masking for the evaluation. Is the length of the annotation.
     """
     batch_size = len(batch)
-    set_trace()
     max_subword_len = max([len(instance) for instance in batch])
     batch_tokens = torch.full((batch_size, max_subword_len), 0, dtype=torch.long, device=device)
     batch_seg_ids = torch.zeros((batch_size, max_subword_len), dtype=torch.long, device=device)
