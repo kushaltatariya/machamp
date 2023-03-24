@@ -84,7 +84,6 @@ def read_classification(
     """
 
     data = []
-    set_trace()
     if max_words != -1:
         logger.error(
             "max_words defined for a classification task, this is not supported, as we do not know what the words are")
