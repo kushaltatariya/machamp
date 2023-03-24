@@ -69,7 +69,7 @@ def merge_configs(dataset_configs: List[str], parameters_config: Dict):
                 data_params[dataset]['tasks'][task] = full_task_config
     return data_params
 
-
+set_trace()
 def prep_batch(
         batch: List[MachampInstance],
         device: str,
