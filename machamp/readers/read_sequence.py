@@ -1,3 +1,4 @@
+from pudb import set_trace
 import logging
 from typing import List
 
@@ -229,6 +230,7 @@ def read_sequence(
         else:
             token_ids, offsets = tokenize_simple(tokenizer, sent, word_col_idx, num_special_tokens, has_unk)
             no_unk_subwords = None
+        set_trace()
         token_ids = tokenizer.prepare_for_model(token_ids, return_tensors='pt')['input_ids']
 
         # if index = -1, the dataset name is used, and this is handled in the superclass
